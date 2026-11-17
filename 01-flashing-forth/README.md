@@ -1,5 +1,7 @@
 <h1> Flashing Forth </h1>
 
+In my <a href="../00-introduction/README.md">last post</a>, I talked about how I got onto the topic of Forths. In this post, I will go over how I took a specific Forth called FlashForth and installed it on an Arduino Mega 2560.
+
 <h2> Research </h2>
 
 Before landing on FlashForth as the Forth that I wanted to use, I did some research into just exactly how it would work for me to flash it onto my Arduino Mega 2560. One of the first things I learned is that, in order to flash the actual firmware on the Arduino, you need to use what is called an In-Circuit Serial Programmer, or ICSP. The ICSP is an actual header on the Arduino board, and it can be seen on page 4 of this datasheet: https://docs.arduino.cc/resources/pinouts/A000067-full-pinout.pdf. Here is a screenshot:
