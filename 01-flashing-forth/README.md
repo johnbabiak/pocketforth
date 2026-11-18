@@ -12,9 +12,9 @@ And here is that it look like on the actual board:
 
 ![Real ICSP Header](./img/real-icsp.jpeg)
 
-This header is used to actually flash firmware onto the chip. Now, what do we connect to the ICSP header to flash the firmware? In my research, I learned of what is called a *USBasp*, which is a open source USB in-circuit programmer for AVR microntrollers (the Arduino is an AVR microcontroller) (https://www.fischl.de/usbasp/).
+This header is used to actually flash firmware onto the chip. Now, what do we connect to the ICSP header to flash the firmware? In my research, I learned of what is called a *USBasp*, which is an open source USB in-circuit programmer for AVR microcontrollers (the Arduino is an AVR microcontroller) (https://www.fischl.de/usbasp/).
 
-Futher in my research, I also found that these USBasp devices are available on Amazon, but that they commonly have an older firmware flashed on to them. This is fine for regular Arduinos like the Uno that have less than 128 KB of flash memory, but the Mega has 256 KB, and the older firmware on the USBasp is unable to flash this full memory. This was a **super helpful guide** that I found explaining all of this: https://petervanhoyweghen.wordpress.com/2015/12/02/the-usbasp-and-atmega2560-mystery.
+Further in my research, I also found that these USBasp devices are available on Amazon, but that they commonly have an older firmware flashed on to them. This is fine for regular Arduinos like the Uno that have less than 128 KB of flash memory, but the Mega has 256 KB, and the older firmware on the USBasp is unable to flash this full memory. This was a **super helpful guide** that I found explaining all of this: https://petervanhoyweghen.wordpress.com/2015/12/02/the-usbasp-and-atmega2560-mystery.
 
 I actually only learned of the above issue when looking at reviews for this specific USBasp which I found on Amazon: https://www.amazon.com/dp/B0885RKVMC?plpRedirect=mhFallback&ref=clp_hp_h_pc. 
 
@@ -245,7 +245,7 @@ avrdude: device signature = 0x1e9801 (probably m2560)
 avrdude done.  Thank you
 ```
 
-This confirms that we can successfully communicate with the Arduino. Now, we will read the flash memory on the Arduino to create a backup of the firmware that already exists on the chip. We cna do that with the following command:
+This confirms that we can successfully communicate with the Arduino. Now, we will read the flash memory on the Arduino to create a backup of the firmware that already exists on the chip. We can do that with the following command:
 
 ```
 avrdude -c usbasp -p m2560 -U flash:r:mega2560-backup.hex:i

@@ -20,7 +20,7 @@ Now, if we look at the quick reference entry for the `+` word, it looks like thi
 
 ![Add Operator Reference](./img/add-op-ref.png)
 
-A key thing that when we need to know when using words is if/how they affect the stack and then what the word actually does. The common notation used with Forths is `( before -- after )`. `before` and `after` refer specifically to the state of the stack before and after the operation. So, for `+`, before the operation we have `n1 n2`, and after the operation, we have `n1+n2`. This means that two values will be popped off the stack, and then a single value will be left on the stack afterwards. More specifically, those two values popped off the stack will be added together, and their sum will be the value that ends up on the stack.
+A key thing that when we need to know when using words is if/how they affect the stack and then what the word actually does. The common notation used with Forths is `( before -- after )`. `before` and `after` refer specifically to the state of the stack before and after the operation. So, for `+`, before the operation we have `n1 n2`, and after the operation, we have `n1+n2`. This means that two values will be popped off the stack, and then a single value will be left on the stack afterward. More specifically, those two values popped off the stack will be added together, and their sum will be the value that ends up on the stack.
 
 We can also look at the reference for the `.` operator:
 
@@ -76,7 +76,7 @@ Nice! And when we use the word, it works as expected: `3 4 5 add3 . 12  ok<#,ram
 
 For me, personally, I like to be able to bring FlashForth back to a "blank slate". By that, I mean just bringing the word list back to the default words. As cool as `add3` is, I don't really need it for anything else right now, and if I do need it later, I can just redefine it. To get back to the default word list, you can use the word `empty`.
 
-I actually really like this work flow. I feel like, personally, this allows me to mess around and try things without worrying about messing anything up. Even if I somehow messed things up really bad, I could just reflash the Arduino. In a future post, I will show you the sort of "explosion of possibilities" that being able to define words enables. More specifically, as you use Forth, you tend to end up writing your own language for how you want to interact with it. `add3` is just an example, but as you get further along using FlashForth, you will find that talking to the Arduino is oddly intuitive.
+I actually really like this work flow. I feel like, personally, this allows me to mess around and try things without worrying about messing anything up. Even if I somehow messed things up really bad, I could just flash the Arduino again. In a future post, I will show you the sort of "explosion of possibilities" that being able to define words enables. More specifically, as you use Forth, you tend to end up writing your own language for how you want to interact with it. `add3` is just an example, but as you get further along using FlashForth, you will find that talking to the Arduino is oddly intuitive.
 
 <h2> Words of Warning </h2>
 
