@@ -290,7 +290,7 @@ avrdude -c usbasp -p m2560 -u \
   -U lfuse:w:0xff:m
 ```
 
-This sets all of the fuses to the correct values and writes the local `2560-16MHz-38400.hex` firmware to the Arduino. I didn't actually save off the output of my flashing process, but at the end, if everything goes right, you should see no errors and get the `avrdude done. Thank you.` message.
+This sets all the fuses to the correct values and writes the local `2560-16MHz-38400.hex` firmware to the Arduino. I didn't actually save off the output of my flashing process, but at the end, if everything goes right, you should see no errors and get the `avrdude done. Thank you.` message.
 
 <h2> Initial Contact </h2>
 

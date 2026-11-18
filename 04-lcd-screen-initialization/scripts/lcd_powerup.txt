@@ -1,0 +1,112 @@
+-lcd-driver
+marker -lcd-driver
+
+$21 constant ddra
+$22 constant porta
+$24 constant ddrb
+$25 constant portb
+$27 constant ddrc
+$28 constant portc
+$2a constant ddrd
+$2b constant portd
+$33 constant ddrg
+$34 constant portg
+$10a constant ddrl
+$10b constant portl
+
+: lcd_k ( -- pin addr )
+    #1 #1 lshift porta
+;
+
+: lcd_a ( -- pin addr )
+    #1 #3 lshift porta
+;
+
+: lcd_d7 ( -- pin addr )
+    #1 #5 lshift porta
+;
+
+: lcd_d6 ( -- pin addr )
+    #1 #7 lshift porta
+;
+
+: lcd_d5 ( -- pin addr )
+    #1 #6 lshift portc
+;
+
+: lcd_d4 ( -- pin addr )
+    #1 #4 lshift portc
+;
+
+: lcd_d3 ( -- pin addr )
+    #1 #2 lshift portc
+;
+
+: lcd_d2 ( -- pin addr )
+    #1 portc
+;
+
+: lcd_d1 ( -- pin addr )
+    #1 #2 lshift portg
+;
+
+: lcd_d0 ( -- pin addr )
+    #1 portg
+;
+
+: lcd_e ( -- pin addr )
+    #1 #6 lshift portl
+;
+
+: lcd_rw ( -- pin addr )
+    #1 #4 lshift portl
+; 
+
+: lcd_rs ( -- pin addr )
+    #1 #2 lshift portl
+;
+
+: lcd_v0 ( -- pin addr )
+    #1 portl
+;
+
+: lcd_vdd ( -- pin addr )
+   #1 #2 lshift portb
+;
+
+: lcd_vss ( -- pin addr )
+    #1 portb
+;
+
+: lcd_init_vss ( -- )
+    lcd_vss 1- mset
+    lcd_vss mclr \ VSS is 0V
+;
+
+: lcd_init_vdd ( -- )
+    lcd_vdd 1- mset
+    lcd_vdd mset \ VDD is 5V
+;
+
+: lcd_init_v0 ( -- )
+    lcd_v0 1- mset
+    lcd_v0 mclr \ V0 is 0V, max contrast
+;
+
+: lcd_init_k ( -- )
+    lcd_k 1- mset
+    lcd_k mclr \ K is 0V
+;
+
+: lcd_init_a ( -- )
+    lcd_a 1- mset
+    lcd_a mset \ A is 5V
+;
+
+: lcd_init ( -- )
+    lcd_init_vss
+    lcd_init_vdd
+    lcd_init_k
+    lcd_init_a
+    lcd_init_v0
+;
