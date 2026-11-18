@@ -70,7 +70,7 @@ So, now that we know what pins we will use, we will also need all of their regis
 
 If you don't know where I am grabbing all of these addresses from, it is probably a good idea to go back to the last post!
 
-So, now we can define our constants and words. We can define them in such a way as to make our lives a lot easier where we don't need to constantly reference these tables I just made, but instead have the translation of the LED pin on the board automatically correspond to a specific bit in memory. We will be using `mset` and `mclr` a lot, which expects an address and a bit mask, so we will make a word for each of the pins on the LCD, like so:
+So, now we can define our constants and words. We can define them in such a way as to make our lives a lot easier where we don't need to constantly reference these tables I just made, but instead have the translation of the LCD pin on the board automatically correspond to a specific bit in memory. We will be using `mset` and `mclr` a lot, which expects an address and a bit mask, so we will make a word for each of the pins on the LCD, like so:
 
 ```
 $21 constant ddra

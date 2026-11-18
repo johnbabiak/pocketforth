@@ -1,0 +1,203 @@
+-lcd-driver
+marker -lcd-driver
+
+$21 constant ddra
+$22 constant porta
+$24 constant ddrb
+$25 constant portb
+$27 constant ddrc
+$28 constant portc
+$2a constant ddrd
+$2b constant portd
+$33 constant ddrg
+$34 constant portg
+$10a constant ddrl
+$10b constant portl
+
+: lcd_k ( -- pin addr )
+    #1 #1 lshift porta
+;
+
+: lcd_a ( -- pin addr )
+    #1 #3 lshift porta
+;
+
+: lcd_d7 ( -- pin addr )
+    #1 #5 lshift porta
+;
+
+: lcd_d6 ( -- pin addr )
+    #1 #7 lshift porta
+;
+
+: lcd_d5 ( -- pin addr )
+    #1 #6 lshift portc
+;
+
+: lcd_d4 ( -- pin addr )
+    #1 #4 lshift portc
+;
+
+: lcd_d3 ( -- pin addr )
+    #1 #2 lshift portc
+;
+
+: lcd_d2 ( -- pin addr )
+    #1 portc
+;
+
+: lcd_d1 ( -- pin addr )
+    #1 #2 lshift portg
+;
+
+: lcd_d0 ( -- pin addr )
+    #1 portg
+;
+
+: lcd_e ( -- pin addr )
+    #1 #6 lshift portl
+;
+
+: lcd_rw ( -- pin addr )
+    #1 #4 lshift portl
+; 
+
+: lcd_rs ( -- pin addr )
+    #1 #2 lshift portl
+;
+
+: lcd_v0 ( -- pin addr )
+    #1 portl
+;
+
+: lcd_vdd ( -- pin addr )
+   #1 #2 lshift portb
+;
+
+: lcd_vss ( -- pin addr )
+    #1 portb
+;
+
+: lcd_init_vss ( -- )
+    lcd_vss 1- mset
+    lcd_vss mclr \ VSS is 0V
+;
+
+: lcd_init_vdd ( -- )
+    lcd_vdd 1- mset
+    lcd_vdd mset \ VDD is 5V
+;
+
+: lcd_init_v0 ( -- )
+    lcd_v0 1- mset
+    lcd_v0 mclr \ V0 is 0V, max contrast
+;
+
+: lcd_init_k ( -- )
+    lcd_k 1- mset
+    lcd_k mclr \ K is 0V
+;
+
+: lcd_init_a ( -- )
+    lcd_a 1- mset
+    lcd_a mset \ A is 5V
+;
+
+: lcd_init_data ( -- )
+    lcd_d0 1- mset
+    lcd_d1 1- mset
+    lcd_d2 1- mset
+    lcd_d3 1- mset
+    lcd_d4 1- mset
+    lcd_d5 1- mset
+    lcd_d6 1- mset
+    lcd_d7 1- mset
+;
+
+: lcd_init_cntrl ( -- )
+    lcd_rs 1- mset
+    lcd_rs mclr
+    lcd_rw 1- mset
+    lcd_rw mclr
+    lcd_e 1- mset
+    lcd_e mclr
+;
+
+: lcd_send ( c -- )
+    dup #1 and if
+        lcd_d0 mset
+    else
+        lcd_d0 mclr
+    then
+    dup #1 #1 lshift and if
+        lcd_d1 mset
+    else
+        lcd_d1 mclr
+    then
+    dup #1 #2 lshift and if
+        lcd_d2 mset
+    else
+        lcd_d2 mclr
+    then
+    dup #1 #3 lshift and if
+        lcd_d3 mset
+    else
+        lcd_d3 mclr
+    then
+    dup #1 #4 lshift and if
+        lcd_d4 mset
+    else
+        lcd_d4 mclr
+    then
+    dup #1 #5 lshift and if
+        lcd_d5 mset
+    else
+        lcd_d5 mclr
+    then
+    dup #1 #6 lshift and if
+        lcd_d6 mset
+    else
+        lcd_d6 mclr
+    then
+    #1 #7 lshift and if
+        lcd_d7 mset
+    else
+        lcd_d7 mclr
+    then
+    lcd_e mclr
+    lcd_e mset
+    lcd_e mclr
+;
+
+: lcd_send_cmd ( c -- )
+    lcd_rs mclr
+    lcd_send
+;
+
+: lcd_send_data ( c -- )
+    lcd_rs mset
+    lcd_send
+;
+
+: lcd_init ( -- )
+    lcd_init_vss
+    lcd_init_vdd
+    lcd_init_k
+    lcd_init_a
+    lcd_init_v0
+    lcd_init_data
+    lcd_init_cntrl
+    #100 ms
+    %00111000 lcd_send_cmd \ 8-bit operation 2 line display
+	%00001110 lcd_send_cmd \ turns on display and cursor
+	%00000110 lcd_send_cmd \ entry mode set
+;
+
+: lcd_write_msg ( c-addr u -- )
+    dup 0= if 2drop exit then
+    for
+    c@+
+    lcd_send_data
+    next
+    drop
+;
