@@ -1,6 +1,6 @@
 <h1> Flashing Forth </h1>
 
-In my <a href="../00-introduction/README.md">last post</a>, I talked about how I got onto the topic of Forths. In this post, I will go over how I took a specific Forth called FlashForth and installed it on an Arduino Mega 2560.
+In my <a href="../00-introduction/">last post</a>, I talked about how I got onto the topic of Forths. In this post, I will go over how I took a specific Forth called FlashForth and installed it on an Arduino Mega 2560.
 
 <h2> Research </h2>
 
@@ -314,4 +314,4 @@ This will push `5` and `2` to the stack, then pop those two values off the stack
 
 ![First Forth Command](./img/first-forth-command.png)
 
-And there we go, we see not only that `7` is printed back, but we also see `ok<#,ram>`. This confirms we successfully have a Forth running on our Arduino! In my <a href="../02-forth-basics/README.md">next post</a>, I will talk more on how to get started using FlashForth and learning what it can do.
+And there we go, we see not only that `7` is printed back, but we also see `ok<#,ram>`. This confirms we successfully have a Forth running on our Arduino! In my <a href="../02-forth-basics/">next post</a>, I will talk more on how to get started using FlashForth and learning what it can do.
