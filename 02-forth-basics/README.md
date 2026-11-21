@@ -1,6 +1,6 @@
 <h1> Forth Basics </h1>
 
-In the <a href="../01-flashing-forth/README.md">last post</a>, we successfully flashed FlashForth onto the Arduino Mega 2560. In this post, I am going to cover some of the basics on getting started with using a Forth.
+In the <a href="../01-flashing-forth/">last post</a>, we successfully flashed FlashForth onto the Arduino Mega 2560. In this post, I am going to cover some of the basics on getting started with using a Forth.
 
 <h2> Words </h2>
 
@@ -96,4 +96,4 @@ As a final note, using A.I. to debug FlashForth is truly hit or miss, and is usu
 
 <h2> Conclusion </h2>
 
-Hopefully this post isn't too scatterbrained or complicated as a sort of basic intro to using a Forth. I feel like I cannot reiterate it enough, but the best way to learn to use a Forth is simply to just use it! If you don't have access to FlashForth, you can even still learn about Forths through other implementations such as `gforth` on Linux or even through completely online options like this: https://skilldrick.github.io/easyforth/. There are also a good series of exercises in the earlier mentioned "Starting Forth" that can really help build your understanding. Anyways, I hope this post helps to build basic understanding of Forths. In my <a href="../03-controlling-pins/README.md">next post</a>, we will go over a basic yet powerful and specific tutorial on using FlashForth with the Arduino Mega 2560.
+Hopefully this post isn't too scatterbrained or complicated as a sort of basic intro to using a Forth. I feel like I cannot reiterate it enough, but the best way to learn to use a Forth is simply to just use it! If you don't have access to FlashForth, you can even still learn about Forths through other implementations such as `gforth` on Linux or even through completely online options like this: https://skilldrick.github.io/easyforth/. There are also a good series of exercises in the earlier mentioned "Starting Forth" that can really help build your understanding. Anyways, I hope this post helps to build basic understanding of Forths. In my <a href="../03-controlling-pins/">next post</a>, we will go over a basic yet powerful and specific tutorial on using FlashForth with the Arduino Mega 2560.
