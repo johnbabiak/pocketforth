@@ -36,7 +36,7 @@ So, if we do `5 2 .s + .s drop`, we should see the values on the stack before th
 
 Nice! So viewing and manipulating the stack really isn't too complicated, especially when we have access to the Quick Reference.
 
-<h2> Defining New Words </h3>
+<h2> Defining New Words </h2>
 
 A foundational concept with Forths is the ability to define new words using words already in the word list. As an example, maybe we want a new command `add3` that can add together three numbers. Without defining a new word, we can do that like so:
 
