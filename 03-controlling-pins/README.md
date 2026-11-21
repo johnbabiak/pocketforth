@@ -1,6 +1,6 @@
 <h1> Controlling Pins </h1>
 
-In the <a href="../02-forth-basics/README.md">last post</a>, I talked about getting started with Forths. In this post, I will begin to talk more specifically about FlashForth and how it can enable us to do some really neat stuff with our Arduino Mega 2560.
+In the <a href="../02-forth-basics/">last post</a>, I talked about getting started with Forths. In this post, I will begin to talk more specifically about FlashForth and how it can enable us to do some really neat stuff with our Arduino Mega 2560.
 
 <h2> Memory Mapped Input and Output </h2>
 
@@ -272,4 +272,4 @@ A key point here is the use of the `marker` word. Basically, what `marker` does 
 
 So, in this post, we learned all about how to use the Arduino with FlashForth to control something with a physical effect in the real world! What I loved about this process is just how hands on everything is. You get to actually interact with the Arduino directly over serial, and you can read or write memory whenever you want. It also can be made to be intuitive through the use of word and constant definitions. That is the powerful thing about a Forth: you are building your own language for how you interact with the microcontroller from the ground up. This means that not only do you understand it completely, but you also have an intuitive, human way to talk to the machine. The fact that you could define a word like `toggle_led` based off of a few other, simple yet powerful words really is just so impressive to me!
 
-In the <a href="../04-lcd-screen-initialization/README.md">next post</a>, I will be covering how I used FlashForth on the Arduino to talk to a LCD 1602 module.
+In the <a href="../04-lcd-screen-initialization/">next post</a>, I will be covering how I used FlashForth on the Arduino to talk to a LCD 1602 module.
