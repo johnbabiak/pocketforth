@@ -1,6 +1,6 @@
 <h1> LCD Screen Initialization </h1>
 
-In the <a href="../03-controlling-pins/README.md">last post</a>, I went through the process of how the onboard LED on the Arduino Mega can be manipulated directly through FlashForth. In this post, I am going to try to communicate with and utilize a 1602 LCD screen module.
+In the <a href="../03-controlling-pins/">last post</a>, I went through the process of how the onboard LED on the Arduino Mega can be manipulated directly through FlashForth. In this post, I am going to try to communicate with and utilize a 1602 LCD screen module.
 
 <h2> Plugging In the LCD </h2>
 
@@ -326,4 +326,4 @@ We see the cursor pop up! We don't see anything when we send the last one, but t
 
 <h2> Conclusion </h2>
 
-So, in this post, we figured out how to both power on and send commands to the LCD. The really powerful thing here is how we are building our language for how we speak to the LCD. Instead of having to remember all the control pins and their addresses and bits, we defined them all as words and constants. In this way, talking to the LCD screen through FlashForth is very intuitive! In the <a href="../05-lcd-message/README.md">next post</a>, I hope to continue building up this language to get characters to display on the screen.
+So, in this post, we figured out how to both power on and send commands to the LCD. The really powerful thing here is how we are building our language for how we speak to the LCD. Instead of having to remember all the control pins and their addresses and bits, we defined them all as words and constants. In this way, talking to the LCD screen through FlashForth is very intuitive! In the <a href="../05-lcd-message/">next post</a>, I hope to continue building up this language to get characters to display on the screen.
