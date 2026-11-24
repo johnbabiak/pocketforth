@@ -20,7 +20,7 @@ Cool, it plugs in! Unfortunately, it doesn't really do anything yet, even when w
 
 <h2> Talking to the LCD </h2>
 
-I have been using a single resource to figure out how to talk to this LCD, and it is this excellent video from Ben Eater on YouTube: https://www.youtube.com/watch?v=FY3zTUaykVo. Now, this video is part of a series where Eater takes a 6502 CPU and builds a breadboard computer around it. Super cool series, worth checking out if you get the chance. For us, that means that this isn't exactly a one-to-one guide on how to set up the LCD, but I have parsed out the useful information from the video here.
+I have been using a single resource to figure out how to talk to this LCD, and it is this excellent video from Ben Eater on YouTube: [https://www.youtube.com/watch?v=FY3zTUaykVo](https://www.youtube.com/watch?v=FY3zTUaykVo). Now, this video is part of a series where Eater takes a 6502 CPU and builds a breadboard computer around it. Super cool series, worth checking out if you get the chance. For us, that means that this isn't exactly a one-to-one guide on how to set up the LCD, but I have parsed out the useful information from the video here.
 
 So, the first thing that we need to do is set up power to the correct pins. Specifically, we need:
 
