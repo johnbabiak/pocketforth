@@ -10,7 +10,7 @@ In order to control pins from FlashForth, we have to understand how we can contr
 
 Memory on the Arduino is **byte accessible**, meaning that memory reads and memory writes operate on, at a minimum, **eight bits**. However, pins are controlled with single **bits** in memory. That means that, on both reads and writes, we have to take extra care to extract or write to only a specific bit within a byte.
 
-If you look at the basic pinout diagram for the Arduino Mega 2560 (or any Arduino) (https://docs.arduino.cc/resources/pinouts/A000067-full-pinout.pdf), you will see that they are grouped by **ports** such as `PB7` or `PK3`. This is how the specific pin on the board is referenced is by this `PXN` notations where `P` means **port**, `X` is the letter of the port, and then `N` is the specific pin in that port. For every port, there are generally 8 pins, numbered 0-7.
+If you look at the basic pinout diagram for the Arduino Mega 2560 (or any Arduino) ([https://docs.arduino.cc/resources/pinouts/A000067-full-pinout.pdf](https://docs.arduino.cc/resources/pinouts/A000067-full-pinout.pdf)), you will see that they are grouped by **ports** such as `PB7` or `PK3`. This is how the specific pin on the board is referenced is by this `PXN` notations where `P` means **port**, `X` is the letter of the port, and then `N` is the specific pin in that port. For every port, there are generally 8 pins, numbered 0-7.
 
 ![Pinout Diagram 1](./img/atmega-pinout-1.png)![Pinout Diagram 2](./img/atmega-pinout-2.png)
 
@@ -22,7 +22,7 @@ At this point, we have a general idea of pins, ports, and registers. Next, we wi
 
 <h2> Datasheet </h2>
 
-In order to figure out the memory addresses of the registers that control the Arduino's pins, we need to consult this data sheet: https://ww1.microchip.com/downloads/en/devicedoc/atmel-2549-8-bit-avr-microcontroller-atmega640-1280-1281-2560-2561_datasheet.pdf. This data sheet is important and awesome and tells us so much of what we need to know in order to use the Arduino Mega 2560. I have downloaded a copy for my own use and reference, and I plan to come back to it a lot. Combine it with the FlashForth quick reference from the last lesson and the pinout diagram and we have pretty much all the datasheets/references we need!
+In order to figure out the memory addresses of the registers that control the Arduino's pins, we need to consult this data sheet: [https://ww1.microchip.com/downloads/en/devicedoc/atmel-2549-8-bit-avr-microcontroller-atmega640-1280-1281-2560-2561_datasheet.pdf](https://ww1.microchip.com/downloads/en/devicedoc/atmel-2549-8-bit-avr-microcontroller-atmega640-1280-1281-2560-2561_datasheet.pdf). This data sheet is important and awesome and tells us so much of what we need to know in order to use the Arduino Mega 2560. I have downloaded a copy for my own use and reference, and I plan to come back to it a lot. Combine it with the FlashForth quick reference from the last lesson and the pinout diagram and we have pretty much all the datasheets/references we need!
 
 The section to look in to find the registers addresses is section "31: Register Summary" starting on page 399. If we scroll down, we can actually see what the address is for `PB7`'s registers:
 
@@ -239,7 +239,7 @@ If you run that multiple times, you should see the LED turn on and off!
 
 <h3> Going Further </h3>
 
-In the official FlashForth online documentation, they actually have a tutorial for writing a program that flashes the LED (https://pajacobs-ghub.github.io/flashforth/ff5-tutorial-guide.html#_flash_a_light_emitting_diode_with_the_atmega:~:text=wide%2E-,5%2E3%2E%20Flash%20a%20light%2Demitting%20diode%20with%20the%20ATmega)
+In the official FlashForth online documentation, they actually have a tutorial for writing a program that flashes the LED ([https://pajacobs-ghub.github.io/flashforth/ff5-tutorial-guide.html#_flash_a_light_emitting_diode_with_the_atmega:~:text=wide%2E-,5%2E3%2E%20Flash%20a%20light%2Demitting%20diode%20with%20the%20ATmega](https://pajacobs-ghub.github.io/flashforth/ff5-tutorial-guide.html#_flash_a_light_emitting_diode_with_the_atmega:~:text=wide%2E-,5%2E3%2E%20Flash%20a%20light%2Demitting%20diode%20with%20the%20ATmega))
 
 ```
 -flash-led-avr
