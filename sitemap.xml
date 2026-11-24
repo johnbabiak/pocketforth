@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://johnbabiak.github.io/pocketforth/</loc>
+  </url>
+
+  <url>
+    <loc>https://johnbabiak.github.io/pocketforth/00-introduction/</loc>
+  </url>
+
+  <url>
+    <loc>https://johnbabiak.github.io/pocketforth/01-flashing-forth/</loc>
+  </url>
+
+  <url>
+    <loc>https://johnbabiak.github.io/pocketforth/02-forth-basics/</loc>
+  </url>
+
+  <url>
+    <loc>https://johnbabiak.github.io/pocketforth/03-controlling-pins/</loc>
+  </url>
+
+  <url>
+    <loc>https://johnbabiak.github.io/pocketforth/04-lcd-screen-initialization/</loc>
+  </url>
+
+  <url>
+    <loc>https://johnbabiak.github.io/pocketforth/05-lcd-message/</loc>
+  </url>
+
+</urlset>
