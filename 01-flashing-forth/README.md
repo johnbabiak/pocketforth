@@ -4,7 +4,7 @@ In my <a href="../00-introduction/">last post</a>, I talked about how I got onto
 
 <h2> Research </h2>
 
-Before landing on FlashForth as the Forth that I wanted to use, I did some research into just exactly how it would work for me to flash it onto my Arduino Mega 2560. One of the first things I learned is that, in order to flash the actual firmware on the Arduino, you need to use what is called an In-Circuit Serial Programmer, or ICSP. The ICSP is an actual header on the Arduino board, and it can be seen on page 4 of this datasheet: https://docs.arduino.cc/resources/pinouts/A000067-full-pinout.pdf. Here is a screenshot:
+Before landing on FlashForth as the Forth that I wanted to use, I did some research into just exactly how it would work for me to flash it onto my Arduino Mega 2560. One of the first things I learned is that, in order to flash the actual firmware on the Arduino, you need to use what is called an In-Circuit Serial Programmer, or ICSP. The ICSP is an actual header on the Arduino board, and it can be seen on page 4 of this datasheet: [https://docs.arduino.cc/resources/pinouts/A000067-full-pinout.pdf](https://docs.arduino.cc/resources/pinouts/A000067-full-pinout.pdf). Here is a screenshot:
 
 ![ICSP Header Diagram](./img/icsp-diagram.png)
 
@@ -12,11 +12,11 @@ And here is that it look like on the actual board:
 
 ![Real ICSP Header](./img/real-icsp.jpeg)
 
-This header is used to actually flash firmware onto the chip. Now, what do we connect to the ICSP header to flash the firmware? In my research, I learned of what is called a *USBasp*, which is an open source USB in-circuit programmer for AVR microcontrollers (the Arduino is an AVR microcontroller) (https://www.fischl.de/usbasp/).
+This header is used to actually flash firmware onto the chip. Now, what do we connect to the ICSP header to flash the firmware? In my research, I learned of what is called a *USBasp*, which is an open source USB in-circuit programmer for AVR microcontrollers (the Arduino is an AVR microcontroller) ([https://www.fischl.de/usbasp/](https://www.fischl.de/usbasp/)).
 
-Further in my research, I also found that these USBasp devices are available on Amazon, but that they commonly have an older firmware flashed on to them. This is fine for regular Arduinos like the Uno that have less than 128 KB of flash memory, but the Mega has 256 KB, and the older firmware on the USBasp is unable to flash this full memory. This was a **super helpful guide** that I found explaining all of this: https://petervanhoyweghen.wordpress.com/2015/12/02/the-usbasp-and-atmega2560-mystery.
+Further in my research, I also found that these USBasp devices are available on Amazon, but that they commonly have an older firmware flashed on to them. This is fine for regular Arduinos like the Uno that have less than 128 KB of flash memory, but the Mega has 256 KB, and the older firmware on the USBasp is unable to flash this full memory. This was a **super helpful guide** that I found explaining all of this: [https://petervanhoyweghen.wordpress.com/2015/12/02/the-usbasp-and-atmega2560-mystery](https://petervanhoyweghen.wordpress.com/2015/12/02/the-usbasp-and-atmega2560-mystery).
 
-I actually only learned of the above issue when looking at reviews for this specific USBasp which I found on Amazon: https://www.amazon.com/dp/B0885RKVMC?plpRedirect=mhFallback&ref=clp_hp_h_pc. 
+I actually only learned of the above issue when looking at reviews for this specific USBasp which I found on Amazon: [https://www.amazon.com/dp/B0885RKVMC?plpRedirect=mhFallback&ref=clp_hp_h_pc](https://www.amazon.com/dp/B0885RKVMC?plpRedirect=mhFallback&ref=clp_hp_h_pc). 
 
 ![USBasp Amazon Review](./img/amazon-review.jpeg)
 
@@ -111,7 +111,7 @@ avrdude: device signature = 0x1e9307 (probably m8)
 avrdude done.  Thank you.
 ```
 
-We can see some SCK errors at the bottom, there are actually known issues with the v1.3 firmware that these devices come with. They don't prevent us from proceeding to flash the newer firmware. The firmware I used was from the earlier guide that I shared, specifically: https://petervanhoyweghen.wordpress.com/2015/12/02/the-usbasp-and-atmega2560-mystery/#:~:text=usbasp%2Dv1%2E5%2Ehex. This is the v1.5 firmware that supports 128+ KB flash memory. I also provided a copy of the firmware file in the `firmware` folder in this current directory.
+We can see some SCK errors at the bottom, there are actually known issues with the v1.3 firmware that these devices come with. They don't prevent us from proceeding to flash the newer firmware. The firmware I used was from the earlier guide that I shared, specifically: [https://petervanhoyweghen.wordpress.com/2015/12/02/the-usbasp-and-atmega2560-mystery/#:~:text=usbasp%2Dv1%2E5%2Ehex](https://petervanhoyweghen.wordpress.com/2015/12/02/the-usbasp-and-atmega2560-mystery/#:~:text=usbasp%2Dv1%2E5%2Ehex). This is the v1.5 firmware that supports 128+ KB flash memory. I also provided a copy of the firmware file in the `firmware` folder in this current directory.
 
 Before flashing the usbasp, it can be good to read and save off the old firmware. To do so, we can run the following command:
 
@@ -160,7 +160,7 @@ And with that, I now have a USBasp with v1.5 firmware on it!
 
 <h3> Flashing the Arduino </h3>
 
-To flash FlashForth onto the Arduino, we need the FlashForth firmware and to connect the Arduino to our computer. I got my copy of FlashForth here: https://sourceforge.net/projects/flashforth/. When you download it, you should get a file named `ff5.0.zip`. You can unzip that, and then, within the folder, you can find precompiled firmware files:
+To flash FlashForth onto the Arduino, we need the FlashForth firmware and to connect the Arduino to our computer. I got my copy of FlashForth here: [https://sourceforge.net/projects/flashforth/](https://sourceforge.net/projects/flashforth/). When you download it, you should get a file named `ff5.0.zip`. You can unzip that, and then, within the folder, you can find precompiled firmware files:
 
 ```
 flashforth5.0/flashforth-code-90206acd971948e3b5e9672a27512988c9793985/avr/hex$ ls
@@ -280,7 +280,7 @@ avrdude: writing output file <stdout>
 avrdude done.  Thank you.
 ```
 
-So, my low fuse was 0xFF, my high fuse was 0xD8, and my extended fuse was 0xFD. FlashForth recommends setting the low fuse to 0xFF, the high fuse to 0xDF and the extended fuse to 0xFC (https://www.flashforth.com/atmega.html#:~:text=Program%20the%20chip,0xf8%2E). As part of the firmware flash command, we can go ahead and set these fuses to the correct values. Below is the complete flashing command:
+So, my low fuse was 0xFF, my high fuse was 0xD8, and my extended fuse was 0xFD. FlashForth recommends setting the low fuse to 0xFF, the high fuse to 0xDF and the extended fuse to 0xFC ([https://www.flashforth.com/atmega.html#:~:text=Program%20the%20chip,0xf8%2E](https://www.flashforth.com/atmega.html#:~:text=Program%20the%20chip,0xf8%2E)). As part of the firmware flash command, we can go ahead and set these fuses to the correct values. Below is the complete flashing command:
 
 ```
 avrdude -c usbasp -p m2560 -u \
